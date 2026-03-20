@@ -35,7 +35,7 @@ botaoCor.addEventListener("click", function () {
     } else {
 
         // caso contrário, volta a cor de fundo do card para branco
-        card.style.backgroundColor = "white";
+        card.style.backgroundColor = "black";
 
         // altera o valor da variável para 0, indicando que voltou ao estado inicial
         corAtual = 0;
