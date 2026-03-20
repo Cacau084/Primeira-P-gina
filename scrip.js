@@ -1,56 +1,43 @@
-<!DOCTYPE html> <!-- informa ao navegador que o documento usa HTML5 -->
-<html lang="pt-BR"> <!-- início do documento HTML e definição do idioma como português do Brasil -->
-<head> <!-- início da área de configurações da página -->
-    <meta charset="UTF-8"> <!-- permite o uso correto de acentos e caracteres especiais -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ajusta a página para funcionar bem em celulares e telas menores -->
-    <title>Mini Currículo</title> <!-- título que aparece na aba do navegador -->
-    <link rel="stylesheet" href="style.css"> <!-- conecta este arquivo HTML ao arquivo CSS -->
-</head> <!-- fim da área de configurações -->
-<body> <!-- início do conteúdo visível da página -->
+// pega o botão que mostra uma mensagem, usando o id dele no HTML
+let botaoMensagem = document.getElementById("btnMensagem");
 
-    <header> <!-- cabeçalho da página -->
-        <h1>Mini Currículo</h1> <!-- título principal exibido no topo -->
-        <p>Exemplo simples de landing page</p> <!-- pequeno texto de apoio abaixo do título -->
-    </header> <!-- fim do cabeçalho -->
+// pega o botão que muda a cor do card, usando o id dele no HTML
+let botaoCor = document.getElementById("btnCor");
 
-    <main> <!-- conteúdo principal da página -->
-        <section class="apresentacao"> <!-- seção de apresentação com classe para estilização no CSS -->
-            <img src="foto.jpg" alt="Foto de perfil"> <!-- imagem de perfil; o alt descreve a imagem caso ela não carregue -->
-            
-            <h2>Marcelo Y.</h2> <!-- nome da pessoa -->
-            <p>Professor da área de tecnologia e programação.</p> <!-- descrição curta da pessoa -->
+// pega o parágrafo onde a mensagem será exibida
+let mensagem = document.getElementById("mensagem");
 
-            <button id="btnMensagem">Mostrar mensagem</button> <!-- botão que mostrará uma mensagem usando JavaScript -->
-            <button id="btnCor">Mudar cor do card</button> <!-- botão que mudará a cor do card usando JavaScript -->
+// pega o card principal da apresentação, usando a classe CSS
+let card = document.querySelector(".apresentacao");
 
-            <p id="mensagem"></p> <!-- parágrafo inicialmente vazio onde a mensagem será exibida -->
-        </section> <!-- fim da seção de apresentação -->
+// adiciona um evento de clique no botão de mostrar mensagem
+botaoMensagem.addEventListener("click", function () {
 
-        <section class="informacoes"> <!-- seção com informações adicionais -->
-            <h2>Sobre mim</h2> <!-- subtítulo da seção -->
-            <p> <!-- início do parágrafo -->
-                Tenho interesse em desenvolvimento web, programação orientada a objetos
-                e produção de materiais didáticos para ensino de computação.
-            </p> <!-- fim do parágrafo -->
+    // quando o botão for clicado, troca o texto do parágrafo pela mensagem desejada
+    mensagem.innerText = "Olá! Seja bem-vindo ao meu mini currículo.";
+});
 
-            <h2>Habilidades</h2> <!-- subtítulo da seção de habilidades -->
-            <ul> <!-- início de uma lista não ordenada -->
-                <li>HTML</li> <!-- item da lista -->
-                <li>CSS</li> <!-- item da lista -->
-                <li>JavaScript</li> <!-- item da lista -->
-                <li>Java</li> <!-- item da lista -->
-            </ul> <!-- fim da lista -->
+// cria uma variável para controlar se a cor atual do card foi alterada ou não
+let corAtual = 0;
 
-            <h2>Contato</h2> <!-- subtítulo da seção de contato -->
-            <p>Email: exemplo@email.com</p> <!-- informação de email -->
-            <p>Cidade: Londrina - PR</p> <!-- informação de cidade -->
-        </section> <!-- fim da seção de informações -->
-    </main> <!-- fim do conteúdo principal -->
+// adiciona um evento de clique no botão de mudar cor
+botaoCor.addEventListener("click", function () {
 
-    <footer> <!-- rodapé da página -->
-        <p>Projeto simples para alunos iniciantes</p> <!-- texto exibido no rodapé -->
-    </footer> <!-- fim do rodapé -->
+    // verifica se o valor atual da variável é 0
+    if (corAtual == 0) {
 
-    <script src="script.js"></script> <!-- conecta o arquivo JavaScript à página -->
-</body> <!-- fim do corpo da página -->
-</html> <!-- fim do documento HTML --></meta>
+        // se for 0, muda a cor de fundo do card para azul claro
+        card.style.backgroundColor = "#dbeafe";
+
+        // altera o valor da variável para 1, indicando que a cor foi trocada
+        corAtual = 1;
+
+    } else {
+
+        // caso contrário, volta a cor de fundo do card para branco
+        card.style.backgroundColor = "white";
+
+        // altera o valor da variável para 0, indicando que voltou ao estado inicial
+        corAtual = 0;
+    }
+});
